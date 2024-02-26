@@ -1,0 +1,10 @@
+[
+    {
+      "name": "pikachu",
+      "types": ["Eletric"]
+    },
+    {
+      "name": "gabite",
+      "types": ["Dragon", "Ground"]
+    }
+]
