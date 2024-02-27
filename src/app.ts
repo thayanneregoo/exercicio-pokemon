@@ -35,7 +35,7 @@ async function lerArquivo(): Promise<void> {
       // Primeira leitura do arquivo 'pokemon.json'
     const dataPokemon: string = await fs.promises.readFile('bdpokemon.json', 'utf8');
       // variavel que diz qual pokemon está sendo procurado
-    let procurado = 'pikachu'; 
+    let procurado = 'gabite'; 
       // Trasformando o JSON em objeto
     const objeto = JSON.parse(dataPokemon);
       //Procurando o pokemon pelo nome 
@@ -45,17 +45,20 @@ async function lerArquivo(): Promise<void> {
     const dataFraquezas: string = await fs.promises.readFile('bdweaknesses.json', 'utf8');
     const fraquezas = JSON.parse(dataFraquezas);
       //criando lista vazia para receber fraquezas
-    let weaknesses:any = []
+    // let weaknesses:any = []
     
-    pokemonEncontrado.types.forEach((elemento: any) => {
-      const fraquezaEncontrada = fraquezas.find((fraqueza: any) => fraqueza.type === elemento);
-      if (fraquezaEncontrada) {
-          weaknesses.push(fraquezaEncontrada.weaknesses);
-      }
-  });
+    // pokemonEncontrado.types.forEach((elemento: any) => {
+    //   const fraquezaEncontrada = fraquezas.find((fraqueza: any) => fraqueza.type === elemento);
+    //   if (fraquezaEncontrada) {
+    //       weaknesses.push(fraquezaEncontrada.weaknesses);
+    //   }
+    
+    let weaknesses = pokemonEncontrado.types.map((elemento: any) => {
+      return fraquezas.find((fraqueza: any) => fraqueza.type === elemento).weaknesses;
+    })
   
-  // O flat transforma a duas listas em uma lista só e o filter filtra os elementos   
-  weaknesses=weaknesses.flat().filter((item: any, index: any, self: string | any[]) => self.indexOf(item) === index);
+    // O flat transforma a duas listas em uma lista só e o filter filtra os elementos   
+    weaknesses = weaknesses.flat().filter((item: any, index: any, self: string | any[]) => self.indexOf(item) === index);
 
 
     
