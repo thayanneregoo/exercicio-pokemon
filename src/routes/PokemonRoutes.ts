@@ -4,7 +4,6 @@ const pokemonRouter = express.Router()
 pokemonRouter.post('/',teste)
 
 
-
+//Service contém a lógica 
 //Controlers gestão de erros
-//Service contém a lógica
 //Routes genrencia o direcionamento
