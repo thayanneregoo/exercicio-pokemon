@@ -1,16 +1,15 @@
 import fs from 'fs'
 
+const { readFileSync } = require('fs'); 
 
 export const dataPokemon:any = () => {
-    const data:any = fs.promises.readFile('bdpokemon.json', 'utf8')
+    const data:any = readFileSync(__dirname +'/../../bdpokemon.json', 'utf-8')
     const dataObject = JSON.parse(data)
     return dataObject
 }
-console.log(dataPokemon())
 
-
-export const getPokemonbyName:any = (pokemonName:string) => {
-    return dataPokemon.find((pokemon:any) => pokemon.name == pokemonName
+export const getPokemonbyName = (pokemonName:string) => {
+    return dataPokemon().find((pokemon:any) => pokemon.name == pokemonName
     )}
 
 export const getPokemonbyId:any = (id:string) => {

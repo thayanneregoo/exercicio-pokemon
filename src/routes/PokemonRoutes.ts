@@ -4,7 +4,7 @@ import { getPokemon } from "../controllers"
  
 export const pokemonRouter = express.Router()
 
-pokemonRouter.post('/', getPokemon)
+pokemonRouter.get('/', getPokemon)
 
 
 //Service contém a lógica 

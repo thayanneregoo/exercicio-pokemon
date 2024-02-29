@@ -1,11 +1,15 @@
 import fs from 'fs'
 
+const { readFileSync } = require('fs'); 
 
 export const dataWeaknesses:any = () => {
-    const data:any = fs.promises.readFile('bdweaknesses.json', 'utf8')
-    return JSON.parse(data)
+    const data:any = readFileSync(__dirname +'/../../bdweaknesses.json', 'utf-8')
+    const dataObject = JSON.parse(data)
+    return dataObject
 }
 
+
 export const getWeaknessesbyType: any = (type:string) => {
-        return dataWeaknesses.find((weaknesse: any) => weaknesse.type === type).weaknesses
+        const weaknesseObject =  dataWeaknesses().find((weaknesse: any) => weaknesse.type === type)
+        return weaknesseObject.weaknesses
 }
