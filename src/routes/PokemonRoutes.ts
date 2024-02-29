@@ -1,10 +1,10 @@
 import express from "express"
-import { getPokemon } from "../controllers" 
+import { getPokemon, getPokemonbyParam } from "../controllers" 
 
- 
 export const pokemonRouter = express.Router()
 
-pokemonRouter.get('/', getPokemon)
+pokemonRouter.post('/:name', getPokemonbyParam)
+pokemonRouter.post('/', getPokemon)
 
 
 //Service contém a lógica 
