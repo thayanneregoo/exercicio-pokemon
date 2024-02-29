@@ -6,9 +6,9 @@ import { getWeaknessesbyType } from "../repositories/weaknessesRepositories";
 export const getAllWeaknesses:any = (name:string) => {
     const pokemonEncontrado =  getPokemonbyName(name)
     let pokemonWeaknesses =  pokemonEncontrado.types.map((type: any) => {
-    return getWeaknessesbyType(type)})
-    
-    return pokemonWeaknesses.flat().sort();
+    return getWeaknessesbyType(type)
+    })  
+    return pokemonWeaknesses.flat().filter((item: any, index: any, self: string | any[]) => self.indexOf(item) === index).sort();
 }
 
 export const getFullPokemon:any = (name:string) => {
