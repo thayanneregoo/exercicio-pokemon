@@ -1,7 +1,10 @@
-import teste from controllers
-const pokemonRouter = express.Router()
+import express from "express"
+import { getPokemon } from "../controllers" 
 
-pokemonRouter.post('/',teste)
+ 
+export const pokemonRouter = express.Router()
+
+pokemonRouter.post('/', getPokemon)
 
 
 //Service contém a lógica 

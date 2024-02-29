@@ -1,17 +1,18 @@
-import { dataPokemon,dataWeaknesses } from "./repositories";
+import { dataPokemon, getPokemonbyName } from "../repositories/pokemonRepositories";
+import { getWeaknessesbyType } from "../repositories/weaknessesRepositories";
 
 
 
-const pokemonObject:any = (dataPokemon:any,pokemonProcurado:string) => {
-   return 
-   dataPokemon.find((pokemon:any) => 
-    pokemon.type == pokemonProcurado
-   )}
-
-const weaknessesObject:any = (dataWeaknesses:any,pokemonObject:any) => {
-    return 
-    dataWeaknesses.find((fraqueza: any) => 
-    fraqueza.type === pokemonObject.type).weaknesses;
+export const getAllWeaknesses:any = (name:string) => {
+    const pokemonEncontrado =  getPokemonbyName(name)
+    let pokemonWeaknesses =  pokemonEncontrado.types.map((type: any) => {
+    getWeaknessesbyType(type)})
+    return pokemonWeaknesses.flat().sort();
 }
 
+export const getFullPokemon:any = (name:string) => {
+    let pokemonEncontrado= getPokemonbyName(name)
+    const weaknesses = getAllWeaknesses(name) 
+    return {...pokemonEncontrado,weaknesses:weaknesses}
+}
 
