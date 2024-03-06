@@ -1,0 +1,45 @@
+body{
+    background-color: rgb(222, 223, 223);
+    height: 100vh;
+}
+
+.navbar{
+    /* background-color: rgb(174, 171, 170); */
+    width: 100vw;
+    height: 25vh;
+    /* font-size: larger;
+    color: aliceblue; */
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    /* border-radius: 5px;
+} */}
+
+img#pokemon-logo{
+    width: 40vw;
+}
+
+.nav{
+    margin: 8vh;
+}
+
+
+.search{
+    display: flex;
+    justify-content: center;
+    padding-bottom: 100vh;
+}
+
+form{
+    padding: 10vh;
+    height: 30vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    border-radius: 20vw;
+    width: 30%;
+    height: 13%;
+}
