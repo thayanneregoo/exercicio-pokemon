@@ -13,8 +13,8 @@ export const getPokemonbyName = (pokemonName:string) => {
     )}
 
 export const getPokemonbyId:any = (id:string) => {
-        return dataPokemon.find((pokemon:any) => pokemon.id == id
-        )}
+        return dataPokemon().find((pokemon:any) => pokemon.id == id
+    )}
 
 // const getPokemonbyParam:any = (dataPokemon:any, param:any) => {
 //     return 
