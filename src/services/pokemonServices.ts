@@ -32,4 +32,3 @@ export const getFullPokemonbyId:any = (id:Number) =>{
  }
 
 
-console.log(getFullPokemonbyId(2))
